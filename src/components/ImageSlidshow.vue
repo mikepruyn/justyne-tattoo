@@ -31,7 +31,7 @@ export default {
                 'IMG_0081.png',
                 'IMG_0082.png',
                 'IMG_0083.png',
-                //'IMG_0084.png',
+                'IMG_0084.png',
             ],
             totalImages: null,
             counter: 0,
