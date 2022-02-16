@@ -1,20 +1,30 @@
 <template>
   <div>
-      <button>Click Mee</button>
-      <H1>Justyne gives u a tattoo? 👉👈</H1>
-      <img src="../assets/imgs/heart-wings.jpg">
-
+      <H1>justyne's flash</H1>
+      <ImageSlideshow />
   </div>
   
 </template>
 
 <script>
-export default {
+import ImageSlideshow from './ImageSlidshow.vue'
 
+export default {
+  name: 'Home',
+  components: {
+    ImageSlideshow
+  }
 }
 </script>
 
 <style>
-
+img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.slideshow-controls {
+  display: flex;
+  justify-content: center;
+}
 
 </style>

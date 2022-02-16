@@ -13,6 +13,7 @@ export default {
   components: {
     Home
   }
+  
 }
 </script>
 
@@ -40,7 +41,6 @@ export default {
 
 html {
   cursor: url('./assets/imgs/wand1.png'), auto;
-  overflow: show;
 }
 body {
   background-color: #e1e5cc;
