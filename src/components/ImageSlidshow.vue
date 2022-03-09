@@ -69,4 +69,7 @@ export default {
     padding-left: 12px;
     padding-right: 12px;
 }
+.slideshow-controls {
+    margin-bottom: 50px;
+}
 </style>
