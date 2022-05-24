@@ -19,6 +19,9 @@
 
 <script>
 import NextButton from './NextButton.vue'
+
+import { storage, ref, listAll, getDownloadURL  } from '../firebase'
+
 export default {
     components: {
         NextButton
@@ -26,12 +29,6 @@ export default {
     data: function () {
         return {
             images: [
-                'IMG_0077.png',
-                'IMG_0078.png',
-                'IMG_0081.png',
-                'IMG_0082.png',
-                'IMG_0083.png',
-                'IMG_0084.png',
             ],
             totalImages: null,
             counter: 0,
@@ -42,11 +39,11 @@ export default {
             return this.counter % this.images.length
         },
         currentImagePath () {
-            return require('../assets/flash/' + this.images[this.currentImage])
+            return this.images[this.currentImage]
         }
     },
     mounted () {
-        this.totalImages = this.images.length;
+        this.loadImagesFromFirebase();
     },
     methods: {
         prevImg () {
@@ -59,6 +56,26 @@ export default {
         },
         nextImg () {
             this.counter = this.counter + 1;
+        },
+        loadImagesFromFirebase() {
+            console.log('loading images from firebase...')
+            // Create a reference under which you want to list
+            const listRef = ref(storage, 'flash');
+
+            listAll(listRef)
+                .then((res) => {
+                    console.log('res', res);
+                    this.totalImages = res.items.length;
+                    res.items.forEach(async (itemRef) => {
+                        console.log('item ref', itemRef)
+                        let imageUrl = await getDownloadURL(itemRef)
+                        // All the items under listRef.
+                        this.images.push(imageUrl);
+                    });
+                }).catch((error) => {
+                    // Uh-oh, an error occurred!
+                    console.log('error:', error)
+                });
         }
     }
 }
