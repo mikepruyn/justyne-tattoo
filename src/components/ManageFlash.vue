@@ -1,8 +1,8 @@
 <template>
   <div>
       <draggable>
-          <div v-for="image in images" :key="image">
-              <img :src="image"  class="draggable-image"/>
+          <div v-for="image in images" :key="image.name">
+              <img :src="image.url"  class="draggable-image"/>
           </div>
       </draggable>
   </div>
@@ -44,10 +44,30 @@ export default {
                     // Uh-oh, an error occurred!
                     console.log('error:', error)
                 });
+        },
+        async loadFlashInOrder () {
+            const configRef = ref(storage, 'flash/flashConfig.json');
+            const configRes = await fetch(await getDownloadURL(configRef));
+            const configBlob = await configRes.blob();
+            const blobText = await configBlob.text();
+            const configObject = await JSON.parse(blobText);
+            console.log('config', configObject);
+
+            const flashOrder = configObject.flashOrder;
+            for (const imgName of flashOrder) {
+                console.log(imgName);
+                const imgRef = ref(storage, 'flash/'+imgName);
+                const downloadUrl = await getDownloadURL(imgRef);
+                this.images.push({
+                    name: imgName,
+                    url: downloadUrl
+                })
+            }
         }
     },
     mounted() {
-        this.loadImagesFromFirebase();
+        // this.loadImagesFromFirebase();
+        this.loadFlashInOrder();
     }
 }
 </script>

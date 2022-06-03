@@ -1,6 +1,6 @@
 <template>
   <div>
-      <H1>justyne's flash</H1>
+      <H1>friedgummyworm flash</H1>
       <ImageSlideshow />
   </div>
   
