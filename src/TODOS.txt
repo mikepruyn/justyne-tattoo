@@ -1,7 +1,1 @@
-when justyne updates the order, update txt file
-    - set up event hook for list order changed
-    - get new order
-    - turn into JSON
-    - upload / figure out how to update via firebase storage
-
-load in order on image slideshow
+upload image to  cloud
