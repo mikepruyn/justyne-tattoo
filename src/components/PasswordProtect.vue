@@ -16,7 +16,7 @@
 export default {
     data() {
         return {
-            password: 'ilybb',
+            password: 'Cristofer!@2002',
             enteredValue: '',
             status: ' '
         }
@@ -26,7 +26,10 @@ export default {
             if (this.password == this.enteredValue) {
                 this.$emit('validated');
             } else {
-                this.status = 'Wrong password!'
+                this.status = 'Wrong password!';
+                setTimeout(()=>{
+                    this.status = ' ';
+                }, 2000);
             }
         }
     }
