@@ -13,18 +13,26 @@
 </template>
 
 <script>
+import {useStore} from '../pinia/store';
+
 export default {
     data() {
         return {
-            password: 'Cristofer!@2002',
+            password: '1234',
             enteredValue: '',
             status: ' '
+        }
+    },
+    setup() {
+        let store = useStore();
+        return {
+            store
         }
     },
     methods: {
         passwordSubmit() {
             if (this.password == this.enteredValue) {
-                this.$emit('validated');
+                this.store.adminAccess = true;
             } else {
                 this.status = 'Wrong password!';
                 setTimeout(()=>{

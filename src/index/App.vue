@@ -20,8 +20,16 @@
 export default {
   name: 'App',
   components: {
+  },
+  data() {
+    return {
+      images: []
+    }
+  },
+  mounted() {
   }
 }
+
 </script>
 
 <style>

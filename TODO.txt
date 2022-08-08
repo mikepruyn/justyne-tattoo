@@ -1,0 +1,2 @@
+add vuex to store whether signed in or not
+

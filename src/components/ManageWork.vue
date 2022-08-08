@@ -1,5 +1,5 @@
 <template>
-  <ManageImages :folder="'flash'"></ManageImages>
+  <ManageImages :folder="'work'"></ManageImages>
 </template>
 
 <script>

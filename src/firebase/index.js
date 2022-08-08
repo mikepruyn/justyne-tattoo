@@ -22,7 +22,7 @@ console.log(analytics);
 const storage = getStorage();
 
 export {
-    storage, 
+  storage, 
     ref, 
     listAll, 
     getDownloadURL,
