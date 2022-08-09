@@ -25,6 +25,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.imageList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.flashImage {
+  object-fit: cover;
+  width: 30vw;
+  height: 30vw;
+}
 </style>

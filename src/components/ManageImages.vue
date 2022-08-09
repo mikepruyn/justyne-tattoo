@@ -8,7 +8,7 @@
 
         <div class="confirmation-text">{{confirmationText}}</div>
         
-        <input @change="fileUploaded" ref="fileInput" type="file" id="img" name="img" accept="image/*"/>
+        <input @change="fileUploaded" ref="fileInput" type="file" id="img" name="img" accept="image/*" multiple/>
 
         <draggable v-model="images" class="draggable-container">
             <div v-for="image in images" :key="image" class="draggable-item">
@@ -68,8 +68,11 @@ export default {
         },
         async fileUploaded() {
             const files = this.$refs.fileInput.files;
-            let url = await uploadImage(this.folder, files[0]);
-            this.images.unshift(url);
+            console.log(files);
+            for (let i=0; i<files.length; i++) {
+                let url = await uploadImage(this.folder, files[i]);
+                this.images.unshift(url);
+            }
             console.log('updated images', this.images);
         },
         openDeleteDialog(image) {
