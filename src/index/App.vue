@@ -7,6 +7,8 @@
         <router-link class='menu-item' to="/work">Work</router-link>
         <a class='menu-item' href="https://friedgummyworm.bigcartel.com/" target="blank">Shop</a>
         <router-link class='menu-item' to="/booking">Book!</router-link>
+        <div class='menu-item'>About</div>
+        <div class='menu-item'>Policy</div>
       </div>
     </div>
     
@@ -93,6 +95,7 @@ h1 {
   padding: 12px;
   cursor: inherit;
   transition: 0.3s;
+  color: inherit;
 }
 .menu-item:hover {
   text-decoration: none;
