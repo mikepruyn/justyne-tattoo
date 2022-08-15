@@ -6,23 +6,30 @@
             <img :src="image" class="flashImage"/>
         </div>
     </div>
-    <div v-if="showLightbox" class='lightbox'>
-      <img :src="selectedImage" alt=""/>
-      <button @click="showLightbox=false;">Close</button>
-    </div>
+    <Lightbox 
+      :showLightbox="showLightbox" 
+      :image="selectedImage" 
+      @close="showLightbox=false"
+      @next="nextImage()"
+      @prev="prevImage()"
+      ></Lightbox>
   </div>
 </template>
 
 <script>
 import {getImages} from '../firebase/storage';
+import Lightbox from './Lightbox.vue'
+
 export default {
     components: {
+      Lightbox
     },
     data() {
       return {
         images: [],
         selectedImage: '',
-        showLightbox: false
+        showLightbox: false,
+        selectedIndex: 0
       }
     },
     async mounted() {
@@ -30,8 +37,25 @@ export default {
     },
     methods: {
       openLightbox(image) {
+        this.selectedIndex = this.images.findIndex((img)=>img==image);
         this.selectedImage = image;
         this.showLightbox = true;
+      },
+      nextImage() {
+        if (this.selectedIndex == (this.images.length - 1)) {
+          this.selectedIndex = 0
+        } else {
+          this.selectedIndex += 1;
+        }
+        this.selectedImage = this.images[this.selectedIndex];
+      },
+      prevImage() {
+        if (this.selectedIndex == 0) {
+          this.selectedIndex = this.images.length - 1
+        } else {
+          this.selectedIndex -= 1;
+        }
+        this.selectedImage = this.images[this.selectedIndex];
       }
     }
 }
@@ -48,19 +72,5 @@ export default {
   object-fit: cover;
   width: 30vw;
   height: 30vw;
-}
-.lightbox {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0vh;
-  left: 0vw;
-  background-color: bisque;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  row-gap: 20px;
 }
 </style>
