@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="center-container">
-      <div id="menu">
+      <!-- <div id="menu">
         <router-link class='menu-item' to="/">home</router-link>
         <router-link class='menu-item' to="/flash">flash</router-link>
         <router-link class='menu-item' to="/work">work</router-link>
@@ -9,19 +9,23 @@
         <router-link class='menu-item' to="/booking">book!</router-link>
         <router-link class='menu-item' to="/about">about</router-link>
         <div class='menu-item'>policies/F.A.Q.</div>
-      </div>
+      </div> -->
+      <ComingSoon></ComingSoon>
     </div>
     
     
-    <router-view/>
+    <!-- <router-view/> -->
+    
   </div>
 </template>
 
 <script>
+import ComingSoon from '../components/ComingSoon.vue';
 
 export default {
   name: 'App',
   components: {
+    ComingSoon
   },
   data() {
     return {
@@ -82,6 +86,8 @@ h1 {
 .center-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 #menu {
   display: flex;
