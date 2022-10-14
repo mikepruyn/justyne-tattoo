@@ -2,13 +2,13 @@
   <div id="app">
     <div class="center-container">
       <div id="menu">
-        <router-link class='menu-item' to="/">Home</router-link>
-        <router-link class='menu-item' to="/flash">Flash</router-link>
-        <router-link class='menu-item' to="/work">Work</router-link>
-        <a class='menu-item' href="https://friedgummyworm.bigcartel.com/" target="blank">Shop</a>
-        <router-link class='menu-item' to="/booking">Book!</router-link>
-        <div class='menu-item'>About</div>
-        <div class='menu-item'>Policy</div>
+        <router-link class='menu-item' to="/">home</router-link>
+        <router-link class='menu-item' to="/flash">flash</router-link>
+        <router-link class='menu-item' to="/work">work</router-link>
+        <a class='menu-item' href="https://friedgummyworm.bigcartel.com/" target="blank">shop</a>
+        <router-link class='menu-item' to="/booking">book!</router-link>
+        <router-link class='menu-item' to="/about">about</router-link>
+        <div class='menu-item'>policies/F.A.Q.</div>
       </div>
     </div>
     

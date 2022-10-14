@@ -8,9 +8,11 @@ import FlashPage from '../components/FlashPage'
 import WorkPage from '../components/WorkPage'
 import BookingPage from '../components/BookingPage'
 import AdminMenu from '../components/AdminMenu';
+import AboutPage from '../components/AboutPage'
 import { createPinia, PiniaVuePlugin } from 'pinia'
+import LazyLoadDirective from "../directives/LazyLoad";
 
-
+Vue.directive("lazyload", LazyLoadDirective);
 
 Vue.use(VueCompositionAPI)
 
@@ -24,7 +26,8 @@ const routes = [
     { path: '/admin', component: AdminMenu },
     { path: '/flash', component: FlashPage },
     { path: '/work', component: WorkPage },
-    { path: '/booking', component: BookingPage }
+    { path: '/booking', component: BookingPage },
+    { path: '/about', component: AboutPage}
 ]
 
 const router = new VueRouter({

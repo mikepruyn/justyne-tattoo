@@ -14,6 +14,7 @@
     "firebase": "^9.6.6",
     "pinia": "^2.0.17",
     "vue": "^2.6.11",
+    "vue-clazy-load": "^0.4.2",
     "vue-router": "^3.5.4",
     "vuedraggable": "^2.24.3"
   },
